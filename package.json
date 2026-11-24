@@ -7,7 +7,7 @@
   "scripts": {
     "start": "electron .",
     "dist": "electron-packager . \"AP Note Pad\" --platform=win32 --arch=x64 --out=dist --overwrite --icon=assets/icon.ico --ignore=demo-desktop.png --ignore=dist --ignore=\"selftest\\\\.js$\" --ignore=\"^/docs\" --ignore=\"^/\\\\.github\" --ignore=\"^/tests\" --ignore=\"^/scripts\" --ignore=\"installer\\\\.nsi$\" --ignore=\"^/CHANGELOG\\\\.md$\" --ignore=\"^/CONTRIBUTING\\\\.md$\"",
-    "test": "node tests/store.test.js"
+    "test": "node tests/store.test.js && node tests/dates.test.js && node tests/gen-nsis.test.js && node tests/uninstall-cmd.test.js"
   },
   "license": "MIT",
   "devDependencies": {

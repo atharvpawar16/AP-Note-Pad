@@ -14,3 +14,5 @@ jobs:
           node-version: 'lts/*'
       - run: npm ci
       - run: npm test
+      - name: Uninstaller link-detection fixtures
+        run: pwsh -NoProfile -File tests/uninstall-fixtures.ps1

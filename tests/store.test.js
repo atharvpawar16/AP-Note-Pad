@@ -88,3 +88,6 @@ out.checks.default_desktopLayer = !('desktopLayer' in s.data.settings);
 out.checks.default_startWithWindows = s.data.settings.startWithWindows === true;
 
 console.log(JSON.stringify(out, null, 2));
+const failed = Object.keys(out.checks).filter(k => !out.checks[k]);
+if (failed.length) { console.error('FAILED:', failed.join(', ')); process.exit(1); }
+console.log('store.test.js:', Object.keys(out.checks).length, 'checks passed');
