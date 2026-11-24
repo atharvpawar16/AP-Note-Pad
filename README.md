@@ -14,8 +14,8 @@ desktop, with per-day text and task lists, tray control, and automatic JSON back
 - Tray menu: New note, Search, Theme, Opacity, Font size, Glass style, Trash,
   Start with Windows, Uninstall, Quit
 - Shortcuts: Ctrl+Alt+N new note, Ctrl+Alt+F search
-- Rotating JSON backups with quarantine-on-damage: a corrupted notes file never
-  destroys older data
+- Rotating JSON backups with quarantine-on-damage: a corrupted notes file is moved
+  aside instead of overwriting older backups
 - Per-user NSIS installer (no admin) with a proper uninstaller: you choose at
   uninstall time whether your notes and backups are kept or removed
 
@@ -26,10 +26,13 @@ the app does not touch them unless you explicitly ask it to.
 
 ## Install
 
-Download `AP-Note-Pad-Setup-<version>.exe` from Releases and run it. The app installs
-per-user under `%LOCALAPPDATA%\Programs\AP Note Pad`; no administrator rights needed.
-The build is unsigned, so Windows SmartScreen may show its standard warning for
-unrecognized apps.
+A ready-made Windows installer (`AP-Note-Pad-Setup-<version>.exe`) will be published
+on the Releases page. No installer is published there yet; to use the app today,
+run it from source as described below.
+
+Once published, the installer sets up the app per-user under
+`%LOCALAPPDATA%\Programs\AP Note Pad`; no administrator rights needed. The build is
+unsigned, so Windows SmartScreen may show its standard warning for unrecognized apps.
 
 ## Build from source
 
@@ -59,23 +62,23 @@ Linux; excluded from packaged builds).
 
 ## Release status
 
-v0.3.6 is the current release. The app payload built from this source tree
-matches that release.
+v0.3.6 is the current app version. The app payload built from this source tree
+matches the 0.3.6 build previously delivered to its first user. No installer is
+published on GitHub Releases yet.
 
-Known issue in the released 0.3.6 installer: its uninstaller can stop early on
+Known issue in that delivered 0.3.6 installer: its uninstaller can stop early on
 some machines before finishing. When that happens it deletes nothing, but it
 may leave the app stopped and its "Start with Windows" entry removed. Quitting
 from the tray and deleting the app's folder removes the app; notes in
 `%APPDATA%\AP Note Pad` stay unless you delete them yourself.
 
 The installer source in this repository already contains a fix for that early
-stop, and that fix has not shipped in any released build. Building the
-installer from this source therefore does NOT reproduce the released 0.3.6
-installer, and any installer binary built from this source must be released
-under a new version number.
+stop, and the fix is not in any build delivered so far. Building the installer
+from this source therefore does NOT reproduce the delivered 0.3.6 installer, and
+any installer built from this source will ship under a new version number.
 
 ## Verification status
 
 Verified on a real Windows 11 machine: install, note visibility, and Win+D
-recovery (v0.3.6). The build/test harness otherwise runs on Linux; behaviors are
-labeled in the issue tracker as they are verified on Windows.
+recovery (v0.3.6). The build and test harness otherwise runs on Linux; Windows
+verification of the remaining behaviors is ongoing.
