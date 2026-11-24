@@ -1,6 +1,6 @@
 ; AP Note Pad - per-user installer (no admin). Build: NSISDIR=... makensis installer.nsi
 !define APPNAME "AP Note Pad"
-!define VERSION "0.3.6"
+!define VERSION "0.3.7"
 Name "${APPNAME}"
 OutFile "AP-Note-Pad-Setup-${VERSION}.exe"
 Unicode true
