@@ -7,7 +7,7 @@ desktop, with per-day text and task lists, tray control, and automatic JSON back
 
 [![Tests](https://github.com/atharvpawar16/AP-Note-Pad/actions/workflows/tests.yml/badge.svg)](https://github.com/atharvpawar16/AP-Note-Pad/actions/workflows/tests.yml)
 
-**Docs:** [User guide](docs/USER-GUIDE.md)
+**Docs:** [User guide](docs/USER-GUIDE.md) · [Development notes](docs/DEVELOPMENT.md) · [Changelog](CHANGELOG.md) · [Contributing](CONTRIBUTING.md)
 
 ## Screenshot
 
@@ -15,7 +15,6 @@ desktop, with per-day text and task lists, tray control, and automatic JSON back
 
 A real note window on Windows 11. The task text in this screenshot was replaced
 for privacy.
- · [Development notes](docs/DEVELOPMENT.md) · [Changelog](CHANGELOG.md) · [Contributing](CONTRIBUTING.md)
 
 ## Features
 
