@@ -30,11 +30,13 @@ the app does not touch them unless you explicitly ask it to.
 
 ## Install
 
-A ready-made Windows installer (`AP-Note-Pad-Setup-<version>.exe`) will be published
-on the Releases page. No installer is published there yet; to use the app today,
-run it from source as described below.
+The Windows installer (`AP-Note-Pad-Setup-0.3.7.exe`) is on the
+[Releases](https://github.com/atharvpawar16/AP-Note-Pad/releases) page. The current
+0.3.7 build is a pre-release: it has not been verified on a real Windows machine
+yet, so copy your `%APPDATA%\AP Note Pad` folder somewhere safe before installing
+(see **Release status** below). Running from source also works, as described below.
 
-Once published, the installer sets up the app per-user under
+The installer sets up the app per-user under
 `%LOCALAPPDATA%\Programs\AP Note Pad`; no administrator rights needed. The build is
 unsigned, so Windows SmartScreen may show its standard warning for unrecognized apps.
 
