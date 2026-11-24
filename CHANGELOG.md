@@ -1,11 +1,14 @@
 # Changelog
 
-## Unreleased
+## 0.3.7 - 2026-11-24
 
-- Installer source contains a fix for the uninstaller stopping early on some
-  machines. This fix is not in any delivered build; it will ship under a new
-  version number.
-- Project source published on GitHub.
+First public release on GitHub. Verified on the author's Windows 11 machine:
+installed over 0.3.6 and uninstalled keeping notes (author-reported).
+
+- Hardened uninstaller: fixes the early stop on some machines (the 0.3.6 known
+  issue) and offers to keep or delete notes.
+- Leaner app payload: docs, tests and build scripts excluded.
+- Project source, docs, CI and issue backlog published on GitHub.
 
 ## 0.3.6 - 2026-11-14
 

@@ -31,10 +31,9 @@ the app does not touch them unless you explicitly ask it to.
 ## Install
 
 The Windows installer (`AP-Note-Pad-Setup-0.3.7.exe`) is on the
-[Releases](https://github.com/atharvpawar16/AP-Note-Pad/releases) page. The current
-0.3.7 build is a pre-release: it has not been verified on a real Windows machine
-yet, so copy your `%APPDATA%\AP Note Pad` folder somewhere safe before installing
-(see **Release status** below). Running from source also works, as described below.
+[Releases](https://github.com/atharvpawar16/AP-Note-Pad/releases) page. Before
+installing, copy your `%APPDATA%\AP Note Pad` folder somewhere safe; a good habit
+before any update. Running from source also works, as described below.
 
 The installer sets up the app per-user under
 `%LOCALAPPDATA%\Programs\AP Note Pad`; no administrator rights needed. The build is
@@ -68,23 +67,21 @@ Linux; excluded from packaged builds).
 
 ## Release status
 
-v0.3.6 is the current app version. The app payload built from this source tree
-matches the 0.3.6 build previously delivered to its first user. No installer is
-published on GitHub Releases yet.
+v0.3.7 is the current app version, published on
+[Releases](https://github.com/atharvpawar16/AP-Note-Pad/releases). The installer
+was built from this source tree at tag `v0.3.7`. It was verified on the author's
+Windows 11 machine on 2026-11-24: installed over 0.3.6 and uninstalled choosing
+to keep notes, both completing cleanly (author-reported).
 
-Known issue in that delivered 0.3.6 installer: its uninstaller can stop early on
-some machines before finishing. When that happens it deletes nothing, but it
-may leave the app stopped and its "Start with Windows" entry removed. Quitting
-from the tray and deleting the app's folder removes the app; notes in
-`%APPDATA%\AP Note Pad` stay unless you delete them yourself.
-
-The installer source in this repository already contains a fix for that early
-stop, and the fix is not in any build delivered so far. Building the installer
-from this source therefore does NOT reproduce the delivered 0.3.6 installer, and
-any installer built from this source will ship under a new version number.
+0.3.7 ships the hardened uninstaller and fixes the known issue in the delivered
+0.3.6 installer, whose uninstaller could stop early on some machines before
+finishing. When that happened it deleted nothing, but it could leave the app
+stopped and its "Start with Windows" entry removed.
 
 ## Verification status
 
-Verified on a real Windows 11 machine: install, note visibility, and Win+D
-recovery (v0.3.6). The build and test harness otherwise runs on Linux; Windows
-verification of the remaining behaviors is ongoing.
+Verified on the author's Windows 11 machine (author-reported): install, note
+visibility and Win+D recovery (v0.3.6); install over 0.3.6 and uninstall keeping
+notes (v0.3.7, 2026-11-24). The build and test harness otherwise runs on Linux.
+Behavior on the Windows lock screen and virtual desktops is not verified yet
+(issue #2).
