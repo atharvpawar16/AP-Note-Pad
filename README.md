@@ -1,0 +1,81 @@
+# AP Note Pad
+
+A Windows 11 desktop sticky-notes app: frameless glass-style notes that live on the
+desktop, with per-day text and task lists, tray control, and automatic JSON backups.
+
+## Features
+
+- Frameless notes, one window per note, Apple-style glass look (acrylic/mica/solid styles)
+- Day-wise notes: date bar with Prev/Next; tomorrow's note opens only when that day starts
+- Tick-box checklists per day; past days are never deleted
+- Starts with Windows and restores each note's position and size
+- Notes stay on the desktop (no taskbar button) and come back after Show Desktop (Win+D);
+  this recovery can be toggled from the tray ("Bring notes back after Show Desktop")
+- Tray menu: New note, Search, Theme, Opacity, Font size, Glass style, Trash,
+  Start with Windows, Uninstall, Quit
+- Shortcuts: Ctrl+Alt+N new note, Ctrl+Alt+F search
+- Rotating JSON backups with quarantine-on-damage: a corrupted notes file never
+  destroys older data
+- Per-user NSIS installer (no admin) with a proper uninstaller: you choose at
+  uninstall time whether your notes and backups are kept or removed
+
+## Data
+
+Notes live in `%APPDATA%\AP Note Pad` (notes.json plus dated backups). Uninstalling
+the app does not touch them unless you explicitly ask it to.
+
+## Install
+
+Download `AP-Note-Pad-Setup-<version>.exe` from Releases and run it. The app installs
+per-user under `%LOCALAPPDATA%\Programs\AP Note Pad`; no administrator rights needed.
+The build is unsigned, so Windows SmartScreen may show its standard warning for
+unrecognized apps.
+
+## Build from source
+
+Requires Node.js LTS.
+
+```
+npm install
+npm start          # run from source
+npm run dist       # portable folder in dist/ via electron-packager
+```
+
+Installer build (Linux or Windows with NSIS 3.x):
+
+```
+node scripts/gen-nsis.js        # regenerate uninstall manifests from dist/
+makensis installer.nsi          # produces AP-Note-Pad-Setup-<version>.exe
+```
+
+## Tests
+
+```
+node tests/store.test.js        # store/quarantine/backup unit checks (plain node)
+```
+
+`src/selftest.js` is an in-app integration harness (needs an X display on
+Linux; excluded from packaged builds).
+
+## Release status
+
+v0.3.6 is the current release. The app payload built from this source tree
+matches that release.
+
+Known issue in the released 0.3.6 installer: its uninstaller can stop early on
+some machines before finishing. When that happens it deletes nothing, but it
+may leave the app stopped and its "Start with Windows" entry removed. Quitting
+from the tray and deleting the app's folder removes the app; notes in
+`%APPDATA%\AP Note Pad` stay unless you delete them yourself.
+
+The installer source in this repository already contains a fix for that early
+stop, and that fix has not shipped in any released build. Building the
+installer from this source therefore does NOT reproduce the released 0.3.6
+installer, and any installer binary built from this source must be released
+under a new version number.
+
+## Verification status
+
+Verified on a real Windows 11 machine: install, note visibility, and Win+D
+recovery (v0.3.6). The build/test harness otherwise runs on Linux; behaviors are
+labeled in the issue tracker as they are verified on Windows.

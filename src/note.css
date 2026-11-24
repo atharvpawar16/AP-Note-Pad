@@ -1,0 +1,64 @@
+@property --alpha { syntax: '<number>'; inherits: true; initial-value: .55; }
+@property --fs { syntax: '<length>'; inherits: true; initial-value: 14px; }
+:root { --fs: 14px; --alpha: .55; --ink: #2b2623; --sub: #7a6f69; --line: rgba(60,45,35,.14); --tint: 255,247,214; --glass: 255,255,255;
+  transition: --alpha .25s ease, --fs .2s ease; }
+body.dark { --ink: #f3eeea; --sub: #b6aca5; --line: rgba(255,255,255,.16); --glass: 30,28,28; }
+body.dark.c-yellow { --tint: 92,78,40 } body.dark.c-mint { --tint: 40,78,64 } body.dark.c-rose { --tint: 90,50,50 } body.dark.c-sky { --tint: 40,64,90 } body.dark.c-sand { --tint: 78,68,56 }
+body.c-yellow { --tint: 255,243,196 } body.c-mint { --tint: 214,243,228 } body.c-rose { --tint: 252,224,220 } body.c-sky { --tint: 216,234,252 } body.c-sand { --tint: 240,230,216 }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { height: 100%; background: transparent; overflow: hidden; }
+body { font: var(--fs)/1.4 "Segoe UI Variable Text", "Segoe UI", -apple-system, "Helvetica Neue", sans-serif; color: var(--ink); -webkit-user-select: none; user-select: none; }
+@keyframes ap-in { from { opacity: 0; transform: translateY(8px) scale(.98); } to { opacity: 1; transform: none; } }
+.note { position: absolute; inset: 20px; border-radius: 16px; display: flex; flex-direction: column; padding: 10px 12px 10px;
+  background: linear-gradient(rgba(var(--tint), calc(var(--alpha) * .9)), rgba(var(--tint), calc(var(--alpha) * .9))), rgba(var(--glass), calc(var(--alpha) * .35));
+  border: 1px solid rgba(255,255,255,.55); box-shadow: 0 8px 24px rgba(50,38,30,.18), 0 1px 4px rgba(50,38,30,.10); overflow: hidden;
+  transition: background .25s ease, border-color .25s ease, box-shadow .25s ease;
+  animation: ap-in .18s cubic-bezier(.2,.8,.3,1); will-change: opacity, transform; }
+body.dark .note { border-color: rgba(255,255,255,.14); }
+.bar { display: flex; align-items: center; gap: 2px; padding-bottom: 8px; border-bottom: 1px solid var(--line); -webkit-app-region: drag; }
+body.locked .bar { -webkit-app-region: no-drag; }
+.date { flex: 1; min-width: 0; text-align: center; font-weight: 600; font-size: calc(var(--fs) * .9); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+button { -webkit-app-region: no-drag; font: inherit; color: var(--ink); background: none; border: 0; cursor: pointer; border-radius: 8px; transition: background-color .15s ease, transform .1s ease; }
+button:active:not(:disabled) { transform: scale(.93); }
+.nav { width: 26px; height: 28px; font-size: 20px; line-height: 1; } .nav.sm { width: 22px; font-size: 16px; }
+.nav:hover:not(:disabled) { background: rgba(255,255,255,.45); } body.dark .nav:hover:not(:disabled) { background: rgba(255,255,255,.12); }
+.nav:disabled { opacity: .25; cursor: default; }
+.panel { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; padding: 8px 0; border-bottom: 1px solid var(--line); }
+.panel[hidden] { display: none; }
+.colors { display: flex; gap: 6px; }
+.oprow { display: flex; align-items: center; gap: 8px; flex: 1 1 100%; }
+.oprow label { font-size: calc(var(--fs) * .8); color: var(--sub); }
+#opacity { flex: 1; height: 18px; accent-color: #5b7f6a; cursor: pointer; } .sw { width: 18px; height: 18px; border-radius: 50%; border: 1px solid rgba(0,0,0,.18); }
+.sw.yellow { background: #f6e3a1 } .sw.mint { background: #b9e2cd } .sw.rose { background: #f2c2bb } .sw.sky { background: #bcd7f2 } .sw.sand { background: #e2d3bf }
+.sw:hover { transform: scale(1.15); }
+.chip { padding: 3px 10px; font-size: calc(var(--fs) * .85); background: rgba(255,255,255,.5); border: 1px solid var(--line); } .chip.danger { color: #a4443b; }
+#list { list-style: none; flex: 1; overflow-y: auto; padding: 8px 0 4px; -webkit-user-select: text; user-select: text; }
+#list::-webkit-scrollbar { width: 6px } #list::-webkit-scrollbar-thumb { background: var(--line); border-radius: 3px }
+li { display: flex; align-items: center; gap: 8px; padding: 3px 0; }
+li input[type=checkbox] { appearance: none; width: 17px; height: 17px; flex: none; border: 1.5px solid var(--sub); border-radius: 5px; background: rgba(255,255,255,.4); cursor: pointer; display: grid; place-content: center; transition: background-color .15s ease, border-color .15s ease, transform .1s ease; }
+li input[type=checkbox]:hover { transform: scale(1.08); }
+li input[type=checkbox]:checked { background: #5b7f6a; border-color: #5b7f6a; }
+li input[type=checkbox]:checked::after { content: ""; width: 4px; height: 8px; border: solid #fff; border-width: 0 2px 2px 0; transform: rotate(45deg) translate(-1px,-1px); }
+li .t { flex: 1; min-width: 0; background: none; border: 0; outline: 0; font: inherit; color: var(--ink); }
+li.done .t { text-decoration: line-through; color: var(--sub); }
+li .rm { opacity: 0; width: 20px; height: 20px; font-size: 15px; color: var(--sub); transition: opacity .15s ease; } li:hover .rm { opacity: 1; }
+#add { margin-top: 6px; padding: 7px 10px; border-radius: 10px; border: 1px solid var(--line); background: rgba(255,255,255,.45); font: inherit; color: var(--ink); outline: 0; -webkit-user-select: text; user-select: text; transition: border-color .15s ease, background-color .15s ease; }
+#add:focus { border-color: rgba(91,127,106,.6); background: rgba(255,255,255,.6); }
+body.dark #add:focus { background: rgba(255,255,255,.12); }
+body.dark #add { background: rgba(255,255,255,.08); }
+#add::placeholder { color: var(--sub); }
+.foot { font-size: calc(var(--fs) * .72); color: var(--sub); padding-top: 4px; min-height: 14px; }
+/* Fallback translucent window has no OS blur; the Acrylic window gets it from Windows. */
+body.acrylic .note { background: linear-gradient(rgba(var(--tint), calc(var(--alpha) * .55)), rgba(var(--tint), calc(var(--alpha) * .55))); }
+
+#text { resize: none; flex: none; height: 38%; min-height: 54px; margin-top: 8px; padding: 6px 2px; border: 0; border-bottom: 1px solid var(--line); background: transparent; outline: 0; font: inherit; line-height: 1.45; color: var(--ink); -webkit-user-select: text; user-select: text; }
+#text::placeholder { color: var(--sub); }
+#text::-webkit-scrollbar { width: 6px } #text::-webkit-scrollbar-thumb { background: var(--line); border-radius: 3px }
+.ask { margin-top: 8px; padding: 8px 10px; border: 1px solid var(--line); border-radius: 10px; background: rgba(255,255,255,.5); font-size: calc(var(--fs) * .85); }
+.ask[hidden] { display: none; } .ask .row { display: flex; gap: 6px; margin-top: 6px; flex-wrap: wrap; } .ask .small .chip { font-size: calc(var(--fs) * .75); color: var(--sub); }
+
+/* Acrylic window: Windows paints the blur over the whole window rectangle and rounds the window corners itself,
+   so the note fills the window with no margin and no CSS shadow (a margin would show as a square halo). */
+body.acrylic .note { inset: 0; border-radius: 8px; box-shadow: none; border: 1px solid rgba(255,255,255,.35); }
+
+@media (prefers-reduced-motion: reduce) { .note { animation: none; } button, li input[type=checkbox], .sw { transition: none; } }

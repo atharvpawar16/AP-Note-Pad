@@ -1,0 +1,16 @@
+{
+  "name": "ap-note-pad",
+  "productName": "AP Note Pad",
+  "version": "0.3.6",
+  "description": "AP Note Pad - Phase 1 feasibility prototype",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-packager . \"AP Note Pad\" --platform=win32 --arch=x64 --out=dist --overwrite --icon=assets/icon.ico --ignore=demo-desktop.png --ignore=dist --ignore=\"selftest\\\\.js$\""
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^45.3.1",
+    "@electron/packager": "^18.0.0"
+  }
+}

@@ -1,0 +1,6 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font: 14px "Segoe UI Variable Text","Segoe UI",-apple-system,sans-serif; background: #f6f2ee; color: #2b2623; padding: 14px; height: 100vh; border-radius: 14px; }
+#q { width: 100%; padding: 10px 12px; border-radius: 10px; border: 1px solid #ddd3ca; background: #fff; font: inherit; outline: 0; }
+ul { list-style: none; margin-top: 10px; overflow-y: auto; max-height: 340px; }
+li { padding: 8px 10px; border-radius: 8px; cursor: pointer; } li:hover { background: #ebe3da; }
+li small { display: block; color: #7a6f69; font-size: 12px; } li.done span { text-decoration: line-through; color: #7a6f69; }
