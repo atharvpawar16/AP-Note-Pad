@@ -13,4 +13,4 @@ jobs:
         with:
           node-version: 'lts/*'
       - run: npm ci
-      - run: node tests/store.test.js
+      - run: npm test
