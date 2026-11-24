@@ -1,5 +1,7 @@
 # AP Note Pad
 
+[![views](https://hits.sh/github.com/atharvpawar16/AP-Note-Pad.svg?label=views)](https://hits.sh/github.com/atharvpawar16/AP-Note-Pad/)
+
 A Windows 11 desktop sticky-notes app: frameless glass-style notes that live on the
 desktop, with per-day text and task lists, tray control, and automatic JSON backups.
 
