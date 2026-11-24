@@ -3,6 +3,24 @@
 AP Note Pad puts small glass-style sticky notes directly on your Windows 11
 desktop. Each note holds text and tick-box tasks for one day.
 
+## Installing (unsigned build)
+
+1. Download `AP-Note-Pad-Setup-0.3.7.exe` from the
+   [Releases](https://github.com/atharvpawar16/AP-Note-Pad/releases) page.
+2. If you have used AP Note Pad before, copy your `%APPDATA%\AP Note Pad`
+   folder somewhere safe first.
+3. If the app is running, quit it from the tray icon, then run the installer.
+   It installs for your user account only; no administrator rights needed.
+
+Windows may show a blue "Windows protected your PC" screen. That is the
+standard SmartScreen prompt for apps without a code-signing certificate; this
+build is unsigned. To continue, click **More info**, then **Run anyway**. Do
+not turn SmartScreen off.
+
+To check the download is intact, compare its SHA-256 with the value on the
+release page: open PowerShell and run
+`Get-FileHash .\AP-Note-Pad-Setup-0.3.7.exe`. The two values should match.
+
 ## First run
 
 The app starts with Windows and opens today's notes where you left them.

@@ -33,7 +33,9 @@ the app does not touch them unless you explicitly ask it to.
 The Windows installer (`AP-Note-Pad-Setup-0.3.7.exe`) is on the
 [Releases](https://github.com/atharvpawar16/AP-Note-Pad/releases) page. Before
 installing, copy your `%APPDATA%\AP Note Pad` folder somewhere safe; a good habit
-before any update. Running from source also works, as described below.
+before any update. A portable zip (`AP-Note-Pad-Portable-0.3.7.zip`) is on the
+same page: unzip it and run `AP Note Pad.exe`. Both use the same notes in
+`%APPDATA%\AP Note Pad`. Running from source also works, as described below.
 
 The installer sets up the app per-user under
 `%LOCALAPPDATA%\Programs\AP Note Pad`; no administrator rights needed. The build is
