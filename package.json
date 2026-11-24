@@ -2,7 +2,7 @@
   "name": "ap-note-pad",
   "productName": "AP Note Pad",
   "version": "0.3.7",
-  "description": "AP Note Pad - Phase 1 feasibility prototype",
+  "description": "AP Note Pad - Windows 11 desktop sticky-notes app",
   "main": "src/main.js",
   "scripts": {
     "start": "electron .",
