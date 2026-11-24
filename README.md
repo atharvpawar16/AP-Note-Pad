@@ -3,6 +3,10 @@
 A Windows 11 desktop sticky-notes app: frameless glass-style notes that live on the
 desktop, with per-day text and task lists, tray control, and automatic JSON backups.
 
+[![Tests](https://github.com/atharvpawar16/AP-Note-Pad/actions/workflows/tests.yml/badge.svg)](https://github.com/atharvpawar16/AP-Note-Pad/actions/workflows/tests.yml)
+
+**Docs:** [User guide](docs/USER-GUIDE.md) · [Development notes](docs/DEVELOPMENT.md) · [Changelog](CHANGELOG.md) · [Contributing](CONTRIBUTING.md)
+
 ## Features
 
 - Frameless notes, one window per note, Apple-style glass look (acrylic/mica/solid styles)
